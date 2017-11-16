@@ -7,11 +7,11 @@
     </div> 
 </div>
 <div class="row"> 
-    <div class="col-xs-6">
-        <textarea class="form-control"></textarea>
+    <div class="col-xs-6 col-xs-12">
+        <textarea required #content="ngModel" placeholder="content" [(ngModel)]="content" class="form-control"></textarea>
     </div>
-    <div class="col-xs-6">
-        <button class="btn btn-info">sdf</button>
+    <div class="col-xs-6 col-xs-12">
+        <button [disabled]="content." (click)="send" class="btn btn-info">sdf</button>
     </div>
 </div>
 

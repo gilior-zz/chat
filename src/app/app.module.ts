@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import {APP_ID, Inject, NgModule, PLATFORM_ID} from '@angular/core';
 
-
+import {FormsModule} from '@angular/forms'
 import { AppComponent } from './app.component';
 import {isPlatformBrowser} from "@angular/common";
 
@@ -12,6 +12,7 @@ import {isPlatformBrowser} from "@angular/common";
   ],
   imports: [
       BrowserModule.withServerTransition({ appId: 'chat-app' }),
+      FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

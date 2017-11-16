@@ -36,7 +36,7 @@ app.set('views', join(DIST_FOLDER, 'browser'));
 
 // TODO: implement data requests securely
 app.get('/api/*', (req, res) => {
-    res.status(404).send('data requests are not supported');
+    res.status(200).send('data requests are not supported');
 });
 
 // Server static files from /browser
