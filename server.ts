@@ -23,6 +23,18 @@ const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/mai
 import { ngExpressEngine } from '@nguniversal/express-engine';
 // Import module map for lazy loading
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+import { Message } from './src/Message';
+import { debug } from 'util';
+
+
+const msgs: Message[] = []
+for (let i = 0; i < 10; i++) {
+    msgs.push({
+        content: 'content' + i,
+        sender: 'sender' + i,
+        time: new Date()
+    })
+}
 
 app.engine('html', ngExpressEngine({
     bootstrap: AppServerModuleNgFactory,
@@ -35,8 +47,13 @@ app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, 'browser'));
 
 // TODO: implement data requests securely
-app.get('/api/*', (req, res) => {
-    res.status(200).send('data requests are not supported');
+app.get('/api/data', (req, res) => {
+    
+    res.status(200).send( msgs );
+});
+app.post('/api/data', (req, res) => {
+    
+    res.status(200).send({ "msgs":msgs });
 });
 
 // Server static files from /browser
