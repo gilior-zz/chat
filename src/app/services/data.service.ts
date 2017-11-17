@@ -3,7 +3,7 @@ import { Inject, Optional, Injectable } from "@angular/core";
 import { APP_BASE_HREF } from "@angular/common";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
-import { Message } from "../../Message";
+import { Message, Msgs } from "../../Message";
 import { catchError, map, tap } from 'rxjs/operators';
 import 'rxjs/add/operator/retry';
 import 'rxjs/add/observable/of';
@@ -27,11 +27,13 @@ export class DataService {
         let l = this.http.post(this.url, body)
         l.subscribe();
     }
-    /** GET heroes from the server */
+    /** GET data from the server */
+
     loadMsgs(): Observable<Message[]> {
-        return this.http.get<Message[]>(this.url)
-            .do(
-            i => console.log(i)
-            );
+        // return this.http.get<Message[]>(this.url)
+        //     .do(
+        //     i => console.log(i)
+        //     );
+        return Observable.of(Msgs)
     }
 }
