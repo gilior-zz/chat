@@ -3,7 +3,7 @@ import { Inject, Optional, Injectable } from "@angular/core";
 import { APP_BASE_HREF } from "@angular/common";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
-import { Message, Msgs } from "../../Message";
+import { Message, Msgs } from "../../store/Message";
 import { catchError, map, tap } from 'rxjs/operators';
 import 'rxjs/add/operator/retry';
 import 'rxjs/add/observable/of';

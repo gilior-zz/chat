@@ -23,7 +23,7 @@ const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/mai
 import { ngExpressEngine } from '@nguniversal/express-engine';
 // Import module map for lazy loading
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
-import { Message } from './src/Message';
+import { Message } from './src/store/Message';
 import { debug } from 'util';
 
 

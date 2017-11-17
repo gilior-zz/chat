@@ -12,7 +12,10 @@ import { RouterModule } from '@angular/router';
 import {MainComponent} from "./main/main.component";
 import { AuthGuard } from './guards/auth-guard.service';
 import {LoginDialogComponent} from "./login.dialog/login.dialog.component";
-
+import { IAppState } from 'store/IAppState';
+import { store } from 'store/store';
+import { Action } from 'store/action';
+import {NgRedux, NgReduxModule} from "@angular-redux/store";
 
 
 @NgModule({
@@ -27,9 +30,10 @@ import {LoginDialogComponent} from "./login.dialog/login.dialog.component";
         HttpClientModule,
         AdminRoutingModule,
         RouterModule,
-        MatDialogModule
+        MatDialogModule,
+        NgReduxModule
     ],
-    providers: [DataService,AuthGuard],
+    providers: [DataService,AuthGuard,Action],
        entryComponents:[
            LoginDialogComponent
        ],
@@ -38,9 +42,10 @@ import {LoginDialogComponent} from "./login.dialog/login.dialog.component";
 export class AppModule {
     constructor(
         @Inject(PLATFORM_ID) private platformId: Object,
-        @Inject(APP_ID) private appId: string) {
+        @Inject(APP_ID) private appId: string,ngRedux: NgRedux<IAppState>) {
         const platform = isPlatformBrowser(platformId) ?
             'on the server' : 'in the browser';
         console.log(`Running ${platform} with appId=${appId}`);
+        ngRedux.provideStore(store);
     }
 }
