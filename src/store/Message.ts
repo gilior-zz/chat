@@ -5,7 +5,7 @@ export interface Message {
 }
 
 export const Msgs: Message[] = []
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 100; i++) {
     Msgs.push({
         content: 'content' + i,
         sender: 'sender' + i,

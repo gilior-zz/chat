@@ -3,5 +3,7 @@ import {User} from "./User";
 
 export interface IAppState {
     msgs: Message[];
-    user: User
+    user: User,
+    isLoggedIn:boolean;
 }
+
