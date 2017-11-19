@@ -1,21 +1,10 @@
+<app-login-dialog></app-login-dialog>
 
-<div class="row">
-    <app-login-dialog class="text-right"></app-login-dialog>
-    <div class="col-xs-12" *ngFor="let msg of msgs$|async">
-        <p>
-            <span> {{msg.time|date:'dd-MM-yyyy'}} </span>
-            <span>{{msg.sender}}</span>
-            <span>:</span>
-        </p>
-        <p>
-            
-            {{msg.content}}
-        </p>
-    </div>
-</div>
+<app-message></app-message>
 <div class="row content">
     <div class="col-md-6 col-xs-12">
-        <textarea required #name="ngModel" placeholder="content" [(ngModel)]="content" class="form-control"></textarea>
+        <textarea  required #name="ngModel" placeholder="content" [(ngModel)]="content"
+                  class="form-control"></textarea>
     </div>
     <div class="col-md-6 col-xs-12">
         <button [disabled]="name.invalid" (click)="send()" mat-fab color="primary">send</button>

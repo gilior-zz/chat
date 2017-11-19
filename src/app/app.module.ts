@@ -16,11 +16,12 @@ import { IAppState } from 'store/IAppState';
 import { store } from 'store/store';
 import { Action } from 'store/action';
 import {NgRedux, NgReduxModule} from "@angular-redux/store";
+import { MessageComponent } from './message/message.component';
 
 
 @NgModule({
     declarations: [
-        AppComponent,MainComponent, LoginDialogComponent
+        AppComponent,MainComponent, LoginDialogComponent, MessageComponent
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'chat-app' }),

@@ -16,30 +16,32 @@ declare var gapi
 
 })
 export class LoginDialogComponent implements OnInit, OnDestroy {
-    ngOnDestroy(): void {
-    }
-
     @select('isLoggedIn') isLoggedIn$: Observable<boolean>;
     @select('user') user$: Observable<User>;
     isLoggedIn: boolean = false;
     user: User;
+    btnText: string;
 
     constructor(private authGuard: AuthGuard) {
 
-        this.user$.subscribe(i=>this.user=i);
-        this.isLoggedIn$.subscribe(i =>
-        {
-            this.isLoggedIn = i;
-            if (!this.isLoggedIn) this.btnText = 'Sign in with Google';
-            else return this.btnText = `Hello ${(this.user&&this.user.fullName)||''},sign out`;
-        }
+        this.user$.subscribe(i => this.user = i);
+        this.isLoggedIn$.subscribe(i => {
+                this.isLoggedIn = i;
+                if (!this.isLoggedIn) this.btnText = 'Sign in with Google';
+                else return this.btnText = `Hello ${(this.user && this.user.fullName) || ''},sign out`;
+            }
         )
 
     }
 
+    get BtnText(): string {
+        return this.btnText;
+    }
+
+    ngOnDestroy(): void {
+    }
 
     ngOnInit() {
-
 
 
     }
@@ -53,25 +55,19 @@ export class LoginDialogComponent implements OnInit, OnDestroy {
                 givenName: res.getBasicProfile().getGivenName(),
                 imageUrl: res.getBasicProfile().getImageUrl(),
                 fullName: res.getBasicProfile().getName(),
+                id:res.getBasicProfile().getId()
             }
             this.authGuard.onLoginSuccess(user);
         });
     }
 
     changeState() {
-        if (this.isLoggedIn){
+        if (this.isLoggedIn) {
             this.signOut();
             location.reload();
         }
         else this.signIn();
     }
-
-    btnText: string;
-
-    get BtnText(): string {
-        return this.btnText;
-    }
-
 
     signOut() {
         var auth2 = gapi.auth2.getAuthInstance();

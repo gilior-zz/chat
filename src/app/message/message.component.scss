@@ -1,0 +1,40 @@
+
+.row{
+  //background: darkblue;
+  //color: white;
+}
+.msgs{
+  height:90vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.user{
+  display: flex;
+  align-items: center;
+}
+
+.msg{
+  display: flex;
+  align-items: center;
+  margin:15px;
+  &:nth-child(2n){
+    background-color: lightgray;
+
+  }
+  &:nth-child(2n+1){
+    background-color: darkgray;
+
+  }
+}
+
+img{
+  display: inline !important;
+  border-radius: 50px !important;
+  vertical-align:middle;
+  float: left;
+}
+
+.user-details{
+  padding-left: 20px;
+}
