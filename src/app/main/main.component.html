@@ -1,15 +1,8 @@
 <app-login-dialog></app-login-dialog>
 
 <app-message></app-message>
-<div class="row content">
-    <div class="col-md-6 col-xs-12">
-        <textarea  required #name="ngModel" placeholder="content" [(ngModel)]="content"
-                  class="form-control"></textarea>
-    </div>
-    <div class="col-md-6 col-xs-12">
-        <button [disabled]="name.invalid" (click)="send()" mat-fab color="primary">send</button>
-    </div>
-</div>
+
+<app-content-box></app-content-box>
 
 
 

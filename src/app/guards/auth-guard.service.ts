@@ -35,7 +35,7 @@ export class AuthGuard implements CanActivate {
         if (this.isLoggedIn) return true;
         this.goTo = state.url;
         this.showLogin = true;
-        this.dialogRef = this.dialog.open(LoginDialogComponent);
+        this.dialogRef = this.dialog.open(LoginDialogComponent,{disableClose:true});
 
         this.dialogRef.afterClosed().subscribe(result => {
             console.log('The dialog was closed');

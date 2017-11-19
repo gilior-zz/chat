@@ -1,6 +1,6 @@
-<div class="row msgs">
+<div class="msgs">
   <div class="col-xs-12 msg" *ngFor="let msg of msgs$|async">
-    <div class="col-xs-12 col-md-3 user">
+    <div class="user">
       <img class="img img-rounded img-responsive" [src]="msg.sender.imageUrl" alt="">
       <div class="user-details">
         <span> {{msg.time|date:'dd-MM-yyyy'}} </span>
@@ -10,7 +10,7 @@
       </div>
 
     </div>
-    <div class="col-xs-12 col-md-9 content">
+    <div class="content">
       {{msg.content}}
     </div>
   </div>
