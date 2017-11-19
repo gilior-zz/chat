@@ -13,16 +13,13 @@ import {select} from "@angular-redux/store";
 export class MainComponent implements OnInit {
 
 
-  content: string;
-  constructor(private dataService: DataService) { }
+
+  constructor() { }
   ngOnInit(): void {
 
   }
 
 
-  send() {
-    this.dataService.sendMsg(this.content);
 
-  }
 
 }
