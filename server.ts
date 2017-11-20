@@ -33,12 +33,12 @@ for (let i = 0; i < 10; i++) {
     msgs.push({
         content: 'content' + i,
         sender: {
-            id: 'dsfdsf',
-            fullName: 'dsf',
-            imageUrl: 'dsf',
-            familyName: 'sdf',
-            givenName: 'dsfdsf',
-            Email: 'sdfsdf'
+            id: '110922676585645565031',
+            familyName: 'gishry',
+            givenName: 'lior',
+            imageUrl: 'https://lh6.googleusercontent.com/-0VEgI9-ezvk/AAAAAAAAAAI/AAAAAAAAAAA/ANQ0kf5jiDq4JeEO6xZnSfFejGg9BoH8nA/s96-c/photo.jpg',
+            Email: 'hjk',
+            fullName: 'lior gishry'
         },
         time: new Date()
     })

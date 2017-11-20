@@ -30,10 +30,10 @@ export class DataService {
     /** GET data from the server */
 
     loadMsgs(): Observable<Message[]> {
-        // return this.http.get<Message[]>(this.url)
-        //     .do(
-        //     i => console.log(i)
-        //     );
-        return Observable.of(Msgs)
+        return this.http.get<Message[]>(this.url)
+            .do(
+            i => console.log(i)
+            );
+        // return Observable.of(Msgs)
     }
 }
