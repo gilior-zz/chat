@@ -1,9 +1,10 @@
 // These are important and needed before anything else
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
-import * as http from 'http'
-import * as io from 'socket.io'
+
 import {enableProdMode} from '@angular/core';
+import  * as socketIo from 'socket.io'
+import  * as http from 'http'
 
 import * as express from 'express';
 import {join} from 'path';
@@ -12,11 +13,18 @@ import {join} from 'path';
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
 
+
+
+
 // Express server
 const app = express();
-var httpServer = http.createServer(app);
+const server=http.createServer(app);
+const io=socketIo(server);
+io.on('connection', function(){
 
- var v = io.listen(httpServer);
+});
+
+// var io = socketIo(httpServer);
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');
 
@@ -76,6 +84,6 @@ app.get('*', (req, res) => {
 });
 
 // Start up the Node server
-httpServer.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Node server listening on http://localhost:${PORT}`);
 });

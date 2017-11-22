@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {DataService} from "../services/data.service";
-
+import * as socketIo from 'socket.io';
 @Component({
     selector: 'app-content-box',
     templateUrl: './content-box.component.html',
@@ -12,6 +12,7 @@ export class ContentBoxComponent implements OnInit {
     content: string;
 
     constructor(private dataService: DataService) {
+        var io = socketIo(null);
     }
 
     ngOnInit() {
